@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="admin/_fragments::head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
@@ -48,12 +48,12 @@
 <!--中间内容-->
 <div class="m-padded-tb-large m-container-small">
     <div class="ui container">
-        <form action="#" method="post" class="ui form">
+        <form action="#" method="post" th:action="@{/admin/types}" class="ui form">
 
             <div class="field">
                 <div class="ui left labeled input">
                     <label class="ui teal basic label">名称</label>
-                    <input type="text" name="indexPicture" placeholder="分类名称">
+                    <input type="text" name="name" placeholder="分类名称">
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
@@ -68,9 +68,9 @@
             <tfoot>
                 <tr>
                     <th colspan="6">
-                        <div class="ui floated pagination menu">
-                            <a th:href="@{/admin/types(page=${page.number}-1)}" class="icon item"><i class="left chevron icon"></i>上一页</a>
-                            <a th:href="@{/admin/types(page=${page.number}+1)}" class="icon item">下一页<i class="right chevron icon"></i></a>
+                        <div class="ui floated pagination menu" th:if="${page.totalPages}>1">
+                            <a th:href="@{/admin/types(page=${page.number}-1)}" th:unless="${page.first}" class="icon item"><i class="left chevron icon"></i>上一页</a>
+                            <a th:href="@{/admin/types(page=${page.number}+1)}" th:unless="${page.last}" class="icon item">下一页<i class="right chevron icon"></i></a>
                         </div>
                         <a href="#" th:href="@{/admin/types/input}" class="ui mini right floated teal basic button">新增</a>
                     </th>
