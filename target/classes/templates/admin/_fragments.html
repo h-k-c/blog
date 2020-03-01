@@ -1,0 +1,77 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title th:replace="${title}">博客</title>
+    <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+</head>
+<body>
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">博客管理</h2>
+            <a href="#" class="m-item item m-mobile-hidden" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客</a>
+            <a href="#" class="m-item item m-mobile-hidden" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hidden" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <div class="right m-item m-mobile-hidden menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img src="https://picsum.photos/100/100" class="ui avatar image">
+                        胡开成
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black m-mobile-show icon button m-right-top">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<!--尾部-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui  inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../static/images/one.PNG" th:src="@{/images/one.PNG}" class="ui rounded image" style="width: 110px;">
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced m-opacity-mini">最新的博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-opacity-mini m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email:2605245956@qq.com</a>
+                    <a href="#" class="item">QQ:2605245956</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-opacity-mini m-text-thin m-text-spaced ">Blog</h4>
+                <p class="m-text-spaced m-text-lined m-text-thin m-opacity-mini">
+                    这是我的个人博客、会分享关于编程、写作、思考的任务。一起加油！
+                </p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-mini">
+            Copyright@2016-2020hkc Designed by hkc
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

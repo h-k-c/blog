@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <title>错误</title>
+</head>
+<body>
+    <nav th:replace="_fragments::menu(0)" class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Blog</h2>
+                <a href="#" class="m-item item m-mobile-hidden"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hidden"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hidden"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hidden"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hidden"><i class="info icon"></i>关于我</a>
+                <div class="m-item right item m-mobile-hidden">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search......">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top  m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <div class="m-container-small">
+        <div class="ui error message">
+            <div class="ui m-container">
+                <h2>错误</h2>
+            </div>
+        </div>
+    </div>
+
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : '+${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+</body>
+</html>
