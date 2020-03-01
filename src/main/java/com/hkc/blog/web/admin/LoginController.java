@@ -13,9 +13,11 @@ import javax.servlet.http.HttpSession;
  * @Author 胡开成
  * @Date 2020/2/29 18:28
  */
+
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
+
     @Autowired
     private UserService userService;
 

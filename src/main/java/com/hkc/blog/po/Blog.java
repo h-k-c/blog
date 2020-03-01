@@ -26,6 +26,11 @@ public class Blog {
     private boolean published;
     private boolean commentabled;
     private boolean recommend;
+    /*
+    * @Author hkc
+    * @Date 20:54 2020/3/1
+    * @return 时间的操作
+    **/
     @Temporal(TemporalType.DATE)
     private Date createTime;
     @Temporal(TemporalType.DATE)
