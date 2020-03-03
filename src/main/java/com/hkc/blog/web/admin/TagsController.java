@@ -109,8 +109,8 @@ public class TagsController {
      * @info 删除标签
      **/
 
-     @PostMapping("/tags/{id}/delete")
-     public String delete(@PathVariable Long id,RedirectAttributes attributes){
+     @GetMapping("/tags/{id}/delete")
+     public String delete(@PathVariable("id") Long id,RedirectAttributes attributes){
           tagService.deleteTag(id);
           attributes.addFlashAttribute("message","删除成功");
           return "redirect:/admin/tags";

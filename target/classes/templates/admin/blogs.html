@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
@@ -48,19 +48,18 @@
 <div class="m-padded-tb-large m-container-small">
     <div class="ui container">
         <form action="" method="post" class="ui segment form">
+            <input type="hidden" name="page">
             <div class="inline fields">
                 <div class="field">
                     <input type="text" name="title" placeholder="标题">
                 </div>
                 <div class="field">
                     <div class="ui selection dropdown">
-                        <input type="hidden" name="type">
+                        <input type="hidden" name="typeId">
                         <i class="dropdown icon"></i>
                         <div class="default text">分类</div>
                         <div class="menu">
-                            <div class="item" data-value="1">错误日志</div>
-                            <div class="item" data-value="2">开发手册</div>
-                            <div class="item" data-value="3">日程安排</div>
+                            <div class="item" th:each="type : ${types}" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
                         </div>
                     </div>
                 </div>
@@ -71,12 +70,13 @@
                     </div>
                 </div>
                 <div class="right field">
-                    <button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+                    <button type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
                 </div>
             </div>
         </form>
-        <table class="ui celled table">
-            <thead>
+        <div class="table-container">
+            <table th:fragment="blogList" class="ui celled table">
+                <thead>
                 <tr>
                     <th>编号</th>
                     <th>标题</th>
@@ -85,68 +85,33 @@
                     <th>更新时间</th>
                     <th>操作</th>
                 </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>刻意联系清单</td>
-                <td>认知升级</td>
-                <td>是</td>
-                <td>2020-02-12</td>
-                <td>
-                    <a class="ui mini teal basic button">编辑</a>
-                    <a class="ui mini red basic button">删除</a>
-                </td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>刻意联系清单</td>
-                <td>认知升级</td>
-                <td>是</td>
-                <td>2020-02-12</td>
-                <td>
-                    <a class="ui mini teal basic button">编辑</a>
-                    <a class="ui mini red basic button">删除</a>
-                </td>
-            </tr>
-            </tbody>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>刻意联系清单</td>
-                <td>认知升级</td>
-                <td>是</td>
-                <td>2020-02-12</td>
-                <td>
-                    <a class="ui mini teal basic button">编辑</a>
-                    <a class="ui mini red basic button">删除</a>
-                </td>
-            </tr>
-            </tbody>
-            <tfoot>
+                </thead>
+                <tbody>
+                <tr th:each="blog,iterStat : ${page.content}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td th:text="${blog.title}">刻意联系清单</td>
+                    <td th:text="${blog.type.name}">认知升级</td>
+                    <td th:text="${blog.recommend} ? '是' : '否'">是</td>
+                    <td th:text="${blog.updateTime}">2020-02-12</td>
+                    <td>
+                        <a th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
+                        <a th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui mini red basic button">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
                 <tr>
                     <th colspan="6">
-                        <div class="ui floated pagination menu">
-                            <a class="icon item">
-                                <i class="left chevron icon"></i>
-                                上一页
-                            </a>
-                            <a class="item">1</a>
-                            <a class="item">2</a>
-                            <a class="item">3</a>
-                            <a class="item">4</a>
-                            <a class="icon item">
-                                下一页
-                                <i class="right chevron icon"></i>
-                            </a>
+                        <div class="ui floated pagination menu" th:if="${page.totalPages}>1">
+                            <a onclick="page(this)" th:attr="data-page=${page.number}-1" th:unless="${page.first}" class="icon item"><i class="left chevron icon"></i>上一页</a>
+                            <a onclick="page(this)" th:attr="data-page=${page.number}+1" th:unless="${page.last}" class="icon item">下一页<i class="right chevron icon"></i></a>
                         </div>
                         <a class="ui mini right floated teal basic button">新增</a>
                     </th>
                 </tr>
-            </tfoot>
-        </table>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>
 <br>
@@ -197,8 +162,24 @@
         $('.m-item').toggleClass('m-mobile-hidden');
     });
     $('.ui.dropdown')
-        .dropdown()
-    ;
+        .dropdown();
+    function page(obj) {
+        $("[name='page']").val($(obj)).data("page");
+        loaddate();
+    }
+
+    $('#search-btn').click(function () {
+        loaddate();
+    });
+
+    function loaddate() {
+        $(".table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
+           title : $("[name='title']").val(),
+           typeId : $("[name='typeId']").val(),
+           recommend : $("[name='recommend']").prop('checked'),
+           page : $("[name='page']").val()
+        });
+    }
 </script>
 </body>
 </html>

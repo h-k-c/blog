@@ -4,6 +4,8 @@ import com.hkc.blog.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * @Author 胡开成
  * @Date 2020/3/1 16:49
@@ -18,6 +20,8 @@ public interface TypeService {
     Type getTypeByName(String name);
 
     Type updateType(Long id,Type type);
+
+    List<Type> listType();
 
     void deleteType(Long id);
 }
