@@ -9,6 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author 胡开成
  * @Date 2020/3/2 21:22
@@ -39,6 +42,26 @@ public class TagServiceImpl implements TagService {
         return tagRepository.findByName(name);
     }
 
+    @Override
+    public List<Tag> listTag() {
+        return tagRepository.findAll();
+    }
+
+    @Override
+    public List<Tag> listTag(String ids) {
+        return tagRepository.findAllById(convertToList(ids));
+    }
+
+    private List<Long> convertToList(String ids){
+        List<Long> res=new ArrayList<>();
+        if(!"".equals(ids)&&ids!=null){
+            String[] idarr=ids.split(",");
+            for(int i=0;i<idarr.length;i++){
+                res.add(Long.valueOf(idarr[i]));
+            }
+        }
+        return res;
+    }
     @Override
     public Tag updateTag(Long id, Tag tag) {
         Tag tag1=tagRepository.getOne(id);

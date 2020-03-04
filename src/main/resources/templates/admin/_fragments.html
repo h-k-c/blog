@@ -1,10 +1,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head(title)">
-    <meta charset="UTF-8">
-    <title th:replace="${title}">博客</title>
-    <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,inital-scale=1.0"></meta>
+    <title th:replace="${title}">博客详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}"/>
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}"/>
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}"/>
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}"/>
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.css}">
 </head>
 <body>
 <!--导航-->
@@ -18,7 +23,7 @@
             <div class="right m-item m-mobile-hidden menu">
                 <div class="ui dropdown item">
                     <div class="text">
-                        <img src="https://picsum.photos/100/100" th:src="@{${session.user.avatar}}" class="ui avatar image">
+                        <img src="https://picsum.photos/100/100" th:src="@{${session.user.avator}}" class="ui avatar image">
                         <span th:text="${session.user.nickname}">胡开成</span>
                     </div>
                     <i class="dropdown icon"></i>
@@ -68,6 +73,13 @@
         </p>
     </div>
 </footer>
-
+<th:block th:fragment="script">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+</th:block>
 </body>
 </html>

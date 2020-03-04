@@ -17,15 +17,40 @@ public class Blog {
     @GeneratedValue
     private Long id;
     private String title;
+    /*
+    * @Author hkc
+    * @Date 17:23 2020/3/4
+    * @info 大字段懒加载
+    **/
+
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     private String flag;
     private String firstPicture;
     private Integer view;
     private boolean appreciation;
-    private boolean shareStatment;
+    private boolean shareStatement;
     private boolean published;
     private boolean commentabled;
     private boolean recommend;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /*
+    * @Author hkc
+    * @Date 17:10 2020/3/4
+    * @info 不会存储到数据库中
+    **/
+    @Transient
+    private String tagIds;
     /*
     * @Author hkc
     * @Date 20:54 2020/3/1
@@ -73,6 +98,35 @@ public class Blog {
     }
 
     public Blog() {
+    }
+
+    public void init(){
+        this.tagIds=tagsToIds(this.getTags());
+    }
+    private String tagsToIds(List<Tag> tags){
+        if(!tags.isEmpty()){
+            StringBuffer ids=new StringBuffer();
+            boolean flag=false;
+            for(Tag tag : tags){
+                if(flag){
+                    ids.append(",");
+                }else{
+                    flag=true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        }else{
+            return tagIds;
+        }
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
     }
 
     public Long getId() {
@@ -139,12 +193,12 @@ public class Blog {
         this.appreciation = appreciation;
     }
 
-    public boolean isShareStatment() {
-        return shareStatment;
+    public boolean isShareStatement() {
+        return shareStatement;
     }
 
-    public void setShareStatment(boolean shareStatment) {
-        this.shareStatment = shareStatment;
+    public void setShareStatement(boolean shareStatment) {
+        this.shareStatement = shareStatment;
     }
 
     public boolean isPublished() {
@@ -197,12 +251,19 @@ public class Blog {
                 ", firstPicture='" + firstPicture + '\'' +
                 ", view=" + view +
                 ", appreciation=" + appreciation +
-                ", shareStatment=" + shareStatment +
+                ", shareStatment=" + shareStatement +
                 ", published=" + published +
                 ", commentabled=" + commentabled +
                 ", recommend=" + recommend +
+                ", description='" + description + '\'' +
+                ", tagIds='" + tagIds + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", type=" + type +
+                ", tags=" + tags +
+                ", user=" + user +
+                ", comments=" + comments +
                 '}';
     }
+
 }

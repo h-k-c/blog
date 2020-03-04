@@ -4,6 +4,7 @@ import com.hkc.blog.dao.BlogRepository;
 import com.hkc.blog.exception.NotFoundException;
 import com.hkc.blog.po.Blog;
 import com.hkc.blog.po.Type;
+import com.hkc.blog.util.MyBeanUtils;
 import com.hkc.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,21 +64,32 @@ public class BlogServiceImpl implements BlogService {
         },pageable);
     }
 
+    @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
+        if(blog.getId()==null){
+            blog.setCreateTime(new Date());
+            blog.setUpdateTime(new Date());
+            blog.setView(0);
+        }else{
+            blog.setUpdateTime(new Date());
+        }
         return blogRepository.save(blog);
     }
     @Override
+    @Transactional
     public Blog updateBlog(Long id, Blog blog) {
-        Blog b=blogRepository.getOne(id);
-        if(b==null){
-            throw new NotFoundException("不存在这个博客");
-        }else{
-            BeanUtils.copyProperties(blog,b);
-            return blogRepository.save(b);
+        Blog dbBlog = blogRepository.findById(id).get();
+        if (dbBlog == null) {
+            throw new NotFoundException("博客找不到了");
         }
+        //MyBeanUtils.getNullPropertyNames过滤为空的字段
+        BeanUtils.copyProperties(blog, dbBlog, MyBeanUtils.getNullPropertyNames(blog));
+        dbBlog.setUpdateTime(new Date());
+        return blogRepository.save(dbBlog);
     }
 
+    @Transactional
     @Override
     public void delete(Long id) {
         blogRepository.deleteById(id);
