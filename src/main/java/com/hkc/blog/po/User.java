@@ -26,7 +26,7 @@ public class User {
 
     private String email;
 
-    private String avator;
+    private String avatar;
 
     private Integer type;
     @Temporal(TemporalType.DATE)
@@ -88,12 +88,12 @@ public class User {
         this.email = email;
     }
 
-    public String getAvator() {
-        return avator;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvator(String avator) {
-        this.avator = avator;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public Integer getType() {
@@ -127,7 +127,7 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", avator='" + avator + '\'' +
+                ", avatar='" + avatar + '\'' +
                 ", type=" + type +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +

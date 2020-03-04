@@ -60,7 +60,18 @@
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
+        <!--Markdown转成HTML-->
+        <dependency>
+            <groupId>com.atlassian.commonmark</groupId>
+            <artifactId>commonmark</artifactId>
+            <version>0.14.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.atlassian.commonmark</groupId>
+            <artifactId>commonmark-ext-gfm-tables</artifactId>
+            <version>0.14.0</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

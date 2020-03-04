@@ -22,6 +22,12 @@ public interface BlogService {
 
     Blog updateBlog(Long id,Blog blog);
 
+    Page<Blog> listBlog(Pageable pageable);
+
+    Page<Blog> listBlog(String query,Pageable pageable);
+
+    List<Blog> listRecommendBlogTop(Integer id);
+
     void delete(Long id);
 
 }

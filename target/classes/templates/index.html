@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
@@ -9,7 +9,7 @@
 </head>
 <body>
     <!--导航-->
-    <nav th:replace="_fragments::menu(1)" class="ui inverted attached segment m-padded-tb-mini">
+    <nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui teal header item">Blog</h2>
@@ -43,53 +43,54 @@
                                 <h3 class="ui teal header">博客</h3>
                             </div>
                             <div class="right aligned column">
-                                共<h2 class="ui orange header m-inline-block">14</h2>篇
+                                共<h2 class="ui orange header m-inline-block" th:text="${page.getTotalElements()}">14</h2>篇
                             </div>
                         </div>
                     </div>
                     <!--content-->
                     <div class="ui  attached  segment">
-                        <div class="ui  padded vertical segment">
+
+                        <div class="ui  padded vertical segment" th:each="blog : ${page.content}">
                             <div class="ui mobile reversed stackable grid">
                                 <div class="eleven wide column">
-                                        <h3 class="ui header">你知道什么是好人吗？？</h3>
-                                        <p class="m-text">好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗好人就是我，我就是好人知道了吗</p>
+                                    <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">你知道什么是好人吗？？</a></h3>
+                                        <p class="m-text" th:text="|${blog.description}......|">我就是好人知道了吗好人就是我，我就是好人知道了吗</p>
                                         <div class="ui grid">
                                             <div class="eleven wide column">
                                                 <div class="ui horizontal link list">
                                                     <div class="item">
-                                                        <img src="../static/images/one.PNG" th:src="@{/images/one.PNG}" alt="" class="ui avatar image">
-                                                        <div class="content"><a href="#" class="header">胡开成</a></div>
+                                                        <img src="../static/images/one.PNG" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                                        <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">胡开成</a></div>
                                                     </div>
                                                     <div class="item">
-                                                        <i class="calendar icon"></i>2020-02-20
+                                                        <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-02-20</span>
                                                     </div>
                                                     <div class="item">
-                                                        <i class="eye icon">12312</i>
+                                                        <i class="eye icon"></i><span th:text="${blog.views}">12312</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="right aligned five wide column">
-                                                <a href="#" class="ui teal basic label" target="_blank">认知升级</a>
+                                                <a href="#" class="ui teal basic label" target="_blank" th:text="${blog.type.name}">认知升级</a>
                                             </div>
                                         </div>
                                 </div>
                                 <div class="five wide column">
-                                    <a href="#" target="_blank">
-                                            <img src="../static/images/one.PNG" th:src="@{/images/one.PNG}" class="ui rounded image" alt="" style="width: 150px;height: 150px;">
+                                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                            <img src="../static/images/one.PNG" th:src="@{blog.firstPicture}" class="ui rounded image" alt="" style="width: 150px;height: 150px;">
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--footer-->
-                    <div class="ui bottom attached segment">
+                    <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
                         <div class="ui middle aligned two column grid">
                                 <div class="column">
-                                    <a href="#" class="ui teal basic  mini button">上一页</a>
+                                    <a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}" class="ui teal basic  mini button">上一页</a>
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" class="ui teal basic  mini button">下一页</a>
+                                    <a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}" class="ui teal basic  mini button">下一页</a>
                                 </div>
                         </div>
                     </div>
@@ -110,21 +111,9 @@
                         </div>
                         <div class="ui orange segment">
                             <div class="ui fluid vertical menu">
-                                <a href="#" class="item m-text-spaced">
-                                    学习日志
-                                    <div class="ui teal basic left pointing label">13</div>
-                                </a>
-                                <a href="#" class="item m-text-spaced">
-                                    感悟
-                                    <div class="ui teal basic left pointing label">11</div>
-                                </a>
-                                <a href="#" class="item m-text-spaced">
-                                    想法
-                                    <div class="ui teal basic left pointing label">16</div>
-                                </a>
-                                <a href="#" class="item m-text-spaced">
-                                    行动
-                                    <div class="ui teal basic left pointing label">26</div>
+                                <a href="#" class="item m-text-spaced" th:each="type : ${types}">
+                                    <span th:text="${type.name}">学习日志</span>
+                                    <div class="ui teal basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
                                 </a>
                             </div>
                         </div>
@@ -142,25 +131,9 @@
                             </div>
                         </div>
                         <div class="ui teal segment">
-                            <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
-                                方法论
-                                <div class="detail">23</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
-                                好人论
-                                <div class="detail">23</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
-                                换人论
-                                <div class="detail">23</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui orange basic left pointing label m-margin-tb-tiny">
-                                傻逼论
-                                <div class="detail">23</div>
-                            </a>
-                            <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">
-                                神父论
-                                <div class="detail">23</div>
+                            <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}">
+                                <span th:text="${tag.name}">方法论</span>
+                                <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
                             </a>
                         </div>
                     </div>
@@ -171,14 +144,8 @@
                                 <i class="bookmark icon"></i>最新推荐
                             </div>
                         </div>
-                        <div class="ui orange segment">
-                            <a href="#" class="m-black">如何成神？</a>
-                        </div>
-                        <div class="ui segment">
-                            <a href="#" class="m-black">如何成神？</a>
-                        </div>
-                        <div class="ui segment">
-                            <a href="#" class="m-black">如何成神？</a>
+                        <div class="ui orange segment" th:each="recommengBlog : ${recommengBlogs}">
+                            <a href="#" th:href="@{/blog/{id}(id=${recommengBlog.id})}" class="m-black" th:text="${recommengBlog.title}">如何成神？</a>
                         </div>
                     </div>
                     <!--二维码-->
