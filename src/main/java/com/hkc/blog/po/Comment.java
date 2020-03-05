@@ -18,11 +18,13 @@ public class Comment {
 
     private String nickname;
 
-    private String eamil;
+    private String email;
 
     private String content;
 
-    private String avator;
+    private String avatar;
+
+    private boolean adminComment;
 
     @Temporal(TemporalType.DATE)
     private Date createTime;
@@ -33,6 +35,14 @@ public class Comment {
     private List<Comment> replyComments=new ArrayList<>();
     @ManyToOne
     private Comment parentComment;
+
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
+    }
 
     public List<Comment> getReplyComments() {
         return replyComments;
@@ -77,12 +87,12 @@ public class Comment {
         this.nickname = nickname;
     }
 
-    public String getEamil() {
-        return eamil;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEamil(String eamil) {
-        this.eamil = eamil;
+    public void setEmail(String eamil) {
+        this.email = eamil;
     }
 
     public String getContent() {
@@ -93,12 +103,12 @@ public class Comment {
         this.content = content;
     }
 
-    public String getAvator() {
-        return avator;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvator(String avator) {
-        this.avator = avator;
+    public void setAvatar(String avator) {
+        this.avatar = avator;
     }
 
     public Date getCreateTime() {
@@ -114,10 +124,14 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
-                ", eamil='" + eamil + '\'' +
+                ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
-                ", avator='" + avator + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", adminComment=" + adminComment +
                 ", createTime=" + createTime +
+                ", blog=" + blog +
+                ", replyComments=" + replyComments +
+                ", parentComment=" + parentComment +
                 '}';
     }
 }

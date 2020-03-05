@@ -115,7 +115,9 @@ body{
 .m-black{
     color: #333333 !important;
 }
-
+.m-teal{
+    color: #00B5AD !important;
+}
 /*---------button-position--------------*/
 .m-right-top{
     position: absolute !important;

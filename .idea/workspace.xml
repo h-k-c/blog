@@ -2,37 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b056734e-c055-42fc-bc04-d28a3d5fe548" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/log/log.log.2020-03-04.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_atlassian_commonmark_commonmark_ext_gfm_tables_0_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_atlassian_commonmark_commonmark_ext_heading_anchor_0_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/CommentSerivceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/util/MarkDownUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/AboutShowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/ArchiveShowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/TagShowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/TypeShowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_atlassian_commonmark_commonmark_0_14_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_atlassian_commonmark_commonmark_0_10_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/BlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/BlogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/TypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/dao/TypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/po/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/po/Blog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/po/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/po/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/po/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/BlogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/BlogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/BlogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TagService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TagServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TagServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/service/TypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/admin/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/admin/BlogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/indexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hkc/blog/web/indexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/me.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/me.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/viewpoints/jquery.waypoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/lib/waypoints/jquery.waypoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/lib/viewpoints/jquery.waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/lib/waypoints/jquery.waypoints.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/archives.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/archives.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hkc/blog/po/Blog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hkc/blog/po/Blog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hkc/blog/po/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hkc/blog/po/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hkc/blog/web/admin/BlogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hkc/blog/web/admin/BlogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tags.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/types.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/types.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hkc/blog/po/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hkc/blog/po/Comment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/hkc/blog/web/indexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hkc/blog/web/indexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/me.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/me.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/lib/viewpoints/jquery.waypoints.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/lib/viewpoints/jquery.waypoints.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/_fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/archives.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/archives.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/tags.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/types.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/types.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +148,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -235,7 +249,8 @@
       <workItem from="1583215379003" duration="16726000" />
       <workItem from="1583238667454" duration="2661000" />
       <workItem from="1583296045836" duration="26172000" />
-      <workItem from="1583330654456" duration="14747000" />
+      <workItem from="1583330654456" duration="14912000" />
+      <workItem from="1583386213614" duration="27099000" />
     </task>
     <task id="LOCAL-00001" summary="注解添加">
       <created>1583067315691</created>
@@ -279,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583330824747</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="完成了搜索功能，和博客详情页面的跳转">
+      <created>1583345597222</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583345597222</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +328,8 @@
     <MESSAGE value="新增标签和分类" />
     <MESSAGE value="博客管理" />
     <MESSAGE value="博客后台管理完成&#10;  tip：不能删除相关的表数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="博客后台管理完成&#10;  tip：不能删除相关的表数据" />
+    <MESSAGE value="完成了搜索功能，和博客详情页面的跳转" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了搜索功能，和博客详情页面的跳转" />
   </component>
   <component name="WindowStateProjectService">
     <state x="261" y="0" key="#Assign_Data_Sources" timestamp="1583323806728">
@@ -333,10 +356,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="450" y="202" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1583079448718" />
-    <state x="530" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1583338720319">
+    <state x="530" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1583428543355">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="530" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1583338720319" />
+    <state x="530" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1583428543355" />
     <state x="530" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1582899873188" />
     <state x="436" y="341" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1583328582392">
       <screen x="0" y="0" width="1536" height="834" />
@@ -346,10 +369,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="282" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1583164148336" />
-    <state x="455" y="47" width="1012" height="745" key="CommitChangelistDialog2" timestamp="1583330819986">
+    <state x="524" y="118" key="#xdebugger.evaluate" timestamp="1583418891999">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="455" y="47" width="1012" height="745" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1583330819986" />
+    <state x="524" y="118" key="#xdebugger.evaluate/0.0.1536.834@0.0.1536.834" timestamp="1583418891999" />
+    <state x="455" y="47" width="1012" height="745" key="CommitChangelistDialog2" timestamp="1583345587990">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="455" y="47" width="1012" height="745" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1583345587990" />
     <state x="47" y="75" key="DiffContextDialog" timestamp="1583062790117">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -366,62 +393,62 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="808" y="122" key="Github.UntrackedFilesDialog/0.0.1536.834@0.0.1536.834" timestamp="1583063600385" />
-    <state width="1493" height="368" key="GridCell.Tab.0.bottom" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.0.bottom" timestamp="1583431178381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583431178381" />
     <state width="1481" height="276" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.0.center" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.0.center" timestamp="1583431178381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1583431178381" />
     <state width="1481" height="276" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.0.left" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.0.left" timestamp="1583431178381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1583431178381" />
     <state width="1481" height="276" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.0.right" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.0.right" timestamp="1583431178381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1583431178381" />
     <state width="1481" height="276" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.1.bottom" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.1.bottom" timestamp="1583431178382">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583431178382" />
     <state width="1481" height="276" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.1.center" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.1.center" timestamp="1583431178382">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1583431178382" />
     <state width="1481" height="276" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.1.left" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.1.left" timestamp="1583431178382">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1583431178382" />
     <state width="1481" height="276" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="368" key="GridCell.Tab.1.right" timestamp="1583345089318">
+    <state width="1493" height="287" key="GridCell.Tab.1.right" timestamp="1583431178382">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="368" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1583345089318" />
+    <state width="1493" height="287" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1583431178382" />
     <state width="1481" height="276" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1582904104795" />
-    <state width="1493" height="434" key="GridCell.Tab.2.bottom" timestamp="1583233654803">
+    <state width="1493" height="308" key="GridCell.Tab.2.bottom" timestamp="1583419170254">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="434" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583233654803" />
-    <state width="1493" height="434" key="GridCell.Tab.2.center" timestamp="1583233654803">
+    <state width="1493" height="308" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1583419170254" />
+    <state width="1493" height="308" key="GridCell.Tab.2.center" timestamp="1583419170254">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="434" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1583233654803" />
-    <state width="1493" height="434" key="GridCell.Tab.2.left" timestamp="1583233654803">
+    <state width="1493" height="308" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1583419170254" />
+    <state width="1493" height="308" key="GridCell.Tab.2.left" timestamp="1583419170254">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="434" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1583233654803" />
-    <state width="1493" height="434" key="GridCell.Tab.2.right" timestamp="1583233654803">
+    <state width="1493" height="308" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1583419170254" />
+    <state width="1493" height="308" key="GridCell.Tab.2.right" timestamp="1583419170254">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="434" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1583233654803" />
+    <state width="1493" height="308" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1583419170254" />
     <state x="407" y="113" key="NewModule_or_Project.wizard" timestamp="1583079381944">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -430,23 +457,23 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="386" y="99" key="RollbackChangesDialog/0.0.1536.834@0.0.1536.834" timestamp="1583074762922" />
-    <state x="167" y="86" width="1338" height="717" key="SettingsEditor" timestamp="1583330630110">
+    <state x="167" y="86" width="1338" height="717" key="SettingsEditor" timestamp="1583427074626">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="167" y="86" width="1338" height="717" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1583330630110" />
+    <state x="167" y="86" width="1338" height="717" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1583427074626" />
     <state x="15" y="0" width="1329" height="864" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1582904038870" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1583330833998">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1583345603084">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1583330833998" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1583345603084" />
     <state x="581" y="284" width="341" height="242" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1583329573606">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="581" y="284" width="341" height="242" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.834@0.0.1536.834" timestamp="1583329573606" />
-    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1583342953939">
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1583416725824">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1583342953939" />
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1583416725824" />
     <state x="562" y="334" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583073846262">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -459,14 +486,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="511" y="42" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1583228146633" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1583332849389">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1583399040680">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1583332849389" />
-    <state x="347" y="-1" width="840" height="999" key="search.everywhere.popup" timestamp="1583220857391">
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1583399040680" />
+    <state x="347" y="-1" width="840" height="999" key="search.everywhere.popup" timestamp="1583405225692">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="347" y="-1" width="840" height="999" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1583220857391" />
+    <state x="347" y="-1" width="840" height="999" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1583405225692" />
     <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1582897333918" />
   </component>
 </project>

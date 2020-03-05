@@ -144,7 +144,7 @@
                                 <i class="bookmark icon"></i>最新推荐
                             </div>
                         </div>
-                        <div class="ui orange segment" th:each="recommengBlog : ${recommengBlogs}">
+                        <div class="ui segment" th:each="recommengBlog : ${recommengBlogs}">
                             <a href="#" th:href="@{/blog/{id}(id=${recommengBlog.id})}" class="m-black" th:text="${recommengBlog.title}">如何成神？</a>
                         </div>
                     </div>

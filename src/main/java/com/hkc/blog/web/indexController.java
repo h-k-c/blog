@@ -52,8 +52,13 @@ public class indexController {
 
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable("id") Long id,Model model){
-        model.addAttribute("blog",blogService.getBlog(id));
+        model.addAttribute("blog",blogService.getAndConvert(id));
         return "blog";
+    }
+    @GetMapping("/footer/newblog")
+    public String newblogs(Model model) {
+        model.addAttribute("newblogs", blogService.listRecommendBlogTop(3));
+        return "_fragments :: newblogList";
     }
     
 }
