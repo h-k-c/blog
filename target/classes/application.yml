@@ -6,3 +6,5 @@ spring:
 
 
 comment.avatar: /images/bg.png
+server:
+  port: 80
