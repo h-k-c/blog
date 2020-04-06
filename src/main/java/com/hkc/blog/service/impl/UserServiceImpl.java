@@ -1,7 +1,8 @@
-package com.hkc.blog.service;
+package com.hkc.blog.service.impl;
 
 import com.hkc.blog.dao.UserRepository;
 import com.hkc.blog.po.User;
+import com.hkc.blog.service.UserService;
 import com.hkc.blog.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @Date 2020/2/29 18:22
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     @Override

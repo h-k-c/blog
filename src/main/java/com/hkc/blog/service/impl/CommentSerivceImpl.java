@@ -1,7 +1,8 @@
-package com.hkc.blog.service;
+package com.hkc.blog.service.impl;
 
 import com.hkc.blog.dao.CommentRepository;
 import com.hkc.blog.po.Comment;
+import com.hkc.blog.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -17,7 +18,7 @@ import java.util.List;
  * @Date 2020/3/5 18:29
  */
 @Service
-public class CommentSerivceImpl implements CommentService{
+public class CommentSerivceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
 

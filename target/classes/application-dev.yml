@@ -18,3 +18,11 @@ logging:
     com.hkc: debug
   file:
     name: log/log.log
+
+
+server:
+  port: 443
+  ssl:
+    key-store: classpath:key.pfx
+    key-store-password: IUKDPMaK
+    keyStoreType: PKCS12

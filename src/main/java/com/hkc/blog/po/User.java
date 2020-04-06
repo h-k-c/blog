@@ -1,8 +1,10 @@
 package com.hkc.blog.po;
 
+import org.hibernate.annotations.Proxy;
 import org.springframework.data.repository.cdi.Eager;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_user")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -120,17 +122,17 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", type=" + type +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", nickname='" + nickname + '\'' +
+//                ", password='" + password + '\'' +
+//                ", email='" + email + '\'' +
+//                ", avatar='" + avatar + '\'' +
+//                ", type=" + type +
+//                ", createTime=" + createTime +
+//                ", updateTime=" + updateTime +
+//                '}';
+//    }
 }

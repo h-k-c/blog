@@ -1,19 +1,19 @@
-package com.hkc.blog.service;
+package com.hkc.blog.service.impl;
 
 import com.hkc.blog.dao.BlogRepository;
 import com.hkc.blog.exception.NotFoundException;
 import com.hkc.blog.po.Blog;
 import com.hkc.blog.po.Type;
+import com.hkc.blog.po.User;
+import com.hkc.blog.service.BlogService;
 import com.hkc.blog.util.MarkDownUtils;
 import com.hkc.blog.util.MyBeanUtils;
 import com.hkc.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.*;
@@ -29,9 +29,21 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogRepository blogRepository;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @Override
     public Blog getBlog(Long id) {
-        return blogRepository.getOne(id);
+        Blog blog= (Blog) redisTemplate.opsForValue().get("blog"+id.toString());
+        if(blog!=null){
+            System.out.println("-------成功获得-----"+blog.toString());
+            return blog;
+        }else {
+            Blog blog1=blogRepository.getOne(id);
+            redisTemplate.opsForValue().set("blog"+blog1.getId().toString(),blog1);
+            System.out.println("------------"+blog1.toString());
+            return blog1;
+        }
     }
 
     /*
@@ -39,10 +51,8 @@ public class BlogServiceImpl implements BlogService {
     * @Date 15:29 2020/3/3
     * @info specification用于动态查询
     **/
-
     @Override
     public Page<Blog> listBlog(Pageable pageable, BlogQuery blog) {
-
         return blogRepository.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
@@ -86,6 +96,7 @@ public class BlogServiceImpl implements BlogService {
         }
         return blogRepository.save(blog);
     }
+
     @Override
     @Transactional
     public Blog updateBlog(Long id, Blog blog) {
@@ -103,7 +114,6 @@ public class BlogServiceImpl implements BlogService {
     public Page<Blog> listBlog(Pageable pageable) {
         return blogRepository.findAll(pageable);
     }
-
     @Override
     public Page<Blog> listBlog(String query, Pageable pageable) {
 
@@ -117,7 +127,6 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findTop(pageable);
     }
 
-
     @Transactional
     @Override
     public Map<String, List<Blog>> archiveBlog() {
@@ -128,7 +137,6 @@ public class BlogServiceImpl implements BlogService {
         }
         return map;
     }
-
     @Override
     public Long countBlog() {
         return blogRepository.count();
@@ -137,21 +145,42 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog getAndConvert(Long id) {
-        Blog blog=blogRepository.getOne(id);
-        if(blog==null){
-            throw new NotFoundException("博客不存在");
+//        Blog blog= (Blog) redisTemplate.opsForValue().get("blog"+id);
+//        if(blog!=null){
+//            return blog;
+//        }else{
+//            Blog blog1=blogRepository.getOne(id);
+//            if(blog1==null){
+//                throw new NotFoundException("博客不存在");
+//            }
+//            Blog b=new Blog();
+//            BeanUtils.copyProperties(blog1,b);
+//            String contnet=b.getContent();
+//            b.setContent(MarkDownUtils.markdownToHtmlExtensions(contnet));
+//            redisTemplate.opsForValue().set("blog"+id,b);
+//            //更新views
+//            blogRepository.updateViews(id);
+//            return b;
+//        }
+        Blog blogredis= (Blog) redisTemplate.opsForValue().get("blog"+id);
+        if(blogredis!=null){
+            blogRepository.updateViews(id);
+            return blogredis;
+        }else{
+            Blog blog1=blogRepository.getOne(id);
+            if(blog1==null){
+                throw new NotFoundException("博客不存在");
+            }
+            Blog b=new Blog();
+            BeanUtils.copyProperties(blog1,b);
+            String contnet=b.getContent();
+            b.setContent(MarkDownUtils.markdownToHtmlExtensions(contnet));
+            redisTemplate.opsForValue().set("blog"+id,b);
+            //更新views
+            blogRepository.updateViews(id);
+            return b;
         }
-        Blog b=new Blog();
-        BeanUtils.copyProperties(blog,b);
-        String contnet=b.getContent();
-        b.setContent(MarkDownUtils.markdownToHtmlExtensions(contnet));
-
-        //更新views
-        blogRepository.updateViews(id);
-        return b;
     }
-
-
     @Transactional
     @Override
     public void delete(Long id) {

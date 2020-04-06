@@ -1,14 +1,14 @@
-package com.hkc.blog.service;
+package com.hkc.blog.service.impl;
 
 import com.hkc.blog.dao.TypeRepository;
 import com.hkc.blog.exception.NotFoundException;
 import com.hkc.blog.po.Type;
+import com.hkc.blog.service.TypeService;
+import com.sun.istack.Pool;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +20,9 @@ import java.util.List;
  */
 @Service
 public class TypeServiceImpl implements TypeService {
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     private TypeRepository typeRepository;
@@ -69,7 +72,6 @@ public class TypeServiceImpl implements TypeService {
     * @Date 22:22 2020/3/4
     * @info 按照大小来进行排序
     **/
-
     @Override
     public List<Type> listTypeTop(Integer size) {
         Sort sort =Sort.by(Sort.Direction.DESC, "blogs.size");

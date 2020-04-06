@@ -1,7 +1,11 @@
 package com.hkc.blog.po;
 
+import org.hibernate.annotations.Proxy;
+import org.springframework.context.annotation.Lazy;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +16,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_type")
-public class Type {
+public class Type implements Serializable {
 
     @Id
     @GeneratedValue
@@ -51,11 +55,11 @@ public class Type {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Type{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Type{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                '}';
+//    }
 }

@@ -1,6 +1,10 @@
 package com.hkc.blog.po;
 
+import org.hibernate.annotations.Proxy;
+import org.springframework.context.annotation.Lazy;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_tag")
-public class Tag {
+public class Tag implements Serializable {
 
     @Id
     @GeneratedValue
@@ -48,11 +52,4 @@ public class Tag {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Tag{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

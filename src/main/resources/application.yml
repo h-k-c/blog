@@ -2,13 +2,7 @@ spring:
   thymeleaf:
     mode: HTML
   profiles:
-    active: dev
+    active: pro
 
 
 comment.avatar: /images/bg.png
-server:
-  port: 443
-  ssl:
-    key-store: classpath:key.pfx
-    key-store-password: IUKDPMaK
-    keyStoreType: PKCS12

@@ -1,6 +1,9 @@
 package com.hkc.blog.po;
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_comment")
-public class Comment {
+public class Comment implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -29,11 +32,11 @@ public class Comment {
     @Temporal(TemporalType.DATE)
     private Date createTime;
 
-    @ManyToOne
+    @ManyToOne()
     private Blog blog;
     @OneToMany(mappedBy = "parentComment")
     private List<Comment> replyComments=new ArrayList<>();
-    @ManyToOne
+    @ManyToOne()
     private Comment parentComment;
 
     public boolean isAdminComment() {
@@ -119,19 +122,19 @@ public class Comment {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", email='" + email + '\'' +
-                ", content='" + content + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", adminComment=" + adminComment +
-                ", createTime=" + createTime +
-                ", blog=" + blog +
-                ", replyComments=" + replyComments +
-                ", parentComment=" + parentComment +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Comment{" +
+//                "id=" + id +
+//                ", nickname='" + nickname + '\'' +
+//                ", email='" + email + '\'' +
+//                ", content='" + content + '\'' +
+//                ", avatar='" + avatar + '\'' +
+//                ", adminComment=" + adminComment +
+//                ", createTime=" + createTime +
+//                ", blog=" + blog +
+//                ", replyComments=" + replyComments +
+//                ", parentComment=" + parentComment +
+//                '}';
+//    }
 }

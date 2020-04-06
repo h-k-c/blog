@@ -1,6 +1,10 @@
 package com.hkc.blog.po;
 
+import org.hibernate.annotations.Proxy;
+import org.springframework.context.annotation.Lazy;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +16,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_blog")
-public class Blog {
+public class Blog implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -22,8 +26,7 @@ public class Blog {
     * @Date 17:23 2020/3/4
     * @info 大字段懒加载
     **/
-
-    @Basic(fetch = FetchType.LAZY)
+    @Basic(fetch = FetchType.EAGER)
     @Lob
     private String content;
     private String flag;
@@ -35,14 +38,6 @@ public class Blog {
     private boolean commentabled;
     private boolean recommend;
     private String description;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     /*
     * @Author hkc
@@ -61,17 +56,25 @@ public class Blog {
     @Temporal(TemporalType.DATE)
     private Date updateTime;
 
-    @ManyToOne
+    @ManyToOne()
     private Type type;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST})
+    @ManyToMany(cascade = {CascadeType.PERSIST},fetch = FetchType.EAGER)
     private List<Tag> tags=new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne()
     private User user;
 
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments=new ArrayList<>();
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public List<Comment> getComments() {
         return comments;
@@ -103,6 +106,7 @@ public class Blog {
     public void init(){
         this.tagIds=tagsToIds(this.getTags());
     }
+
     private String tagsToIds(List<Tag> tags){
         if(!tags.isEmpty()){
             StringBuffer ids=new StringBuffer();
@@ -241,29 +245,5 @@ public class Blog {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", flag='" + flag + '\'' +
-                ", firstPicture='" + firstPicture + '\'' +
-                ", views=" + views +
-                ", appreciation=" + appreciation +
-                ", shareStatment=" + shareStatement +
-                ", published=" + published +
-                ", commentabled=" + commentabled +
-                ", recommend=" + recommend +
-                ", description='" + description + '\'' +
-                ", tagIds='" + tagIds + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", type=" + type +
-                ", tags=" + tags +
-                ", user=" + user +
-                ", comments=" + comments +
-                '}';
-    }
 
 }
